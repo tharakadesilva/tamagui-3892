@@ -1,0 +1,66 @@
+diff --git a/lib/commonjs/utils/fetchData.js b/lib/commonjs/utils/fetchData.js
+index 207b2937d048ca9c22b58dd7be3641b5a7262274..ccfe0bf6e54eb9c68146bae1a0cec0592c1a14a1 100644
+--- a/lib/commonjs/utils/fetchData.js
++++ b/lib/commonjs/utils/fetchData.js
+@@ -5,7 +5,6 @@ Object.defineProperty(exports, "__esModule", {
+ });
+ exports.fetchText = fetchText;
+ var _reactNative = require("react-native");
+-var _buffer = require("buffer");
+ async function fetchText(uri) {
+   if (!uri) {
+     return null;
+@@ -21,9 +20,8 @@ async function fetchText(uri) {
+ const decodeBase64Image = uri => {
+   const decoded = decodeURIComponent(uri);
+   const splitContent = decoded.split(';')[1].split(',');
+-  const dataType = splitContent[0];
+   const content = splitContent.slice(1).join(',');
+-  return _buffer.Buffer.from(content, dataType).toString('utf-8');
++  return atob(content);
+ };
+ function dataUriToXml(uri) {
+   try {
+diff --git a/lib/module/utils/fetchData.js b/lib/module/utils/fetchData.js
+index 12b68966cbcfd9a18cae66824dfe7aec60d14a80..2dbfd8e2c00abdf878d9ca931b7f97919945d1df 100644
+--- a/lib/module/utils/fetchData.js
++++ b/lib/module/utils/fetchData.js
+@@ -1,5 +1,4 @@
+ import { Platform } from 'react-native';
+-import { Buffer } from 'buffer';
+ export async function fetchText(uri) {
+   if (!uri) {
+     return null;
+@@ -15,9 +14,8 @@ export async function fetchText(uri) {
+ const decodeBase64Image = uri => {
+   const decoded = decodeURIComponent(uri);
+   const splitContent = decoded.split(';')[1].split(',');
+-  const dataType = splitContent[0];
+   const content = splitContent.slice(1).join(',');
+-  return Buffer.from(content, dataType).toString('utf-8');
++  return atob(content);
+ };
+ function dataUriToXml(uri) {
+   try {
+diff --git a/src/utils/fetchData.ts b/src/utils/fetchData.ts
+index d141be31c924bd1d3ec287ad4e291db018b4bb72..afbe59fd8ad946d02db3a2bbf27d0e808811c9f0 100644
+--- a/src/utils/fetchData.ts
++++ b/src/utils/fetchData.ts
+@@ -1,5 +1,4 @@
+ import { Platform } from 'react-native';
+-import { Buffer } from 'buffer';
+
+ export async function fetchText(uri?: string): Promise<string | null> {
+   if (!uri) {
+@@ -17,10 +16,9 @@ export async function fetchText(uri?: string): Promise<string | null> {
+ const decodeBase64Image = (uri: string) => {
+   const decoded = decodeURIComponent(uri);
+   const splitContent = decoded.split(';')[1].split(',');
+-  const dataType = splitContent[0] as BufferEncoding;
+   const content = splitContent.slice(1).join(',');
+
+-  return Buffer.from(content, dataType).toString('utf-8');
++  return atob(content);
+ };
+
+ function dataUriToXml(uri: string): string | null {
