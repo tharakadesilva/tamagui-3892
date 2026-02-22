@@ -6,7 +6,7 @@ settings:
 
 patchedDependencies:
   react-native-svg@15.15.2:
-    hash: sfxl2vjtwiyactgyjnjrumjzqm
+    hash: 5b1e9388ee3397b57a6c8cb9c2f1bff77d09fd2d6338f26dde097e1dd2767e4a
     path: patches/react-native-svg@15.15.2.patch
 
 importers:
@@ -93,7 +93,7 @@ importers:
         version: 4.22.0(react-native@0.83.1(@babel/core@7.29.0)(@types/react@19.2.13)(react@19.2.0))(react@19.2.0)
       react-native-svg:
         specifier: ^15.15.2
-        version: 15.15.2(patch_hash=sfxl2vjtwiyactgyjnjrumjzqm)(react-native@0.83.1(@babel/core@7.29.0)(@types/react@19.2.13)(react@19.2.0))(react@19.2.0)
+        version: 15.15.2(patch_hash=5b1e9388ee3397b57a6c8cb9c2f1bff77d09fd2d6338f26dde097e1dd2767e4a)(react-native@0.83.1(@babel/core@7.29.0)(@types/react@19.2.13)(react@19.2.0))(react@19.2.0)
       react-native-web:
         specifier: ~0.21.0
         version: 0.21.2(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
@@ -11777,7 +11777,7 @@ snapshots:
       react-native: 0.83.1(@babel/core@7.29.0)(@types/react@19.2.13)(react@19.2.0)
       warn-once: 0.1.1
 
-  react-native-svg@15.15.2(patch_hash=sfxl2vjtwiyactgyjnjrumjzqm)(react-native@0.83.1(@babel/core@7.29.0)(@types/react@19.2.13)(react@19.2.0))(react@19.2.0):
+  react-native-svg@15.15.2(patch_hash=5b1e9388ee3397b57a6c8cb9c2f1bff77d09fd2d6338f26dde097e1dd2767e4a)(react-native@0.83.1(@babel/core@7.29.0)(@types/react@19.2.13)(react@19.2.0))(react@19.2.0):
     dependencies:
       css-select: 5.2.2
       css-tree: 1.1.3
